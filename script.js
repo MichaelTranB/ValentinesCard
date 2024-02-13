@@ -267,8 +267,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function adjustArrowPositions() {
       const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
       if (screenWidth <= 768) { 
-          leftArrow.style.left = "0px"; 
-          rightArrow.style.right = "0px"; 
+          leftArrow.style.left = "-15px"; 
+          rightArrow.style.right = "-15px"; 
       } else {
           leftArrow.style.left = "75px"; 
           rightArrow.style.right = "75px"; 
