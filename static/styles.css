@@ -96,14 +96,22 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 3200; /* Ensure this is above all other elements */
-    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 3200; 
+    pointer-events: none; 
   }
 
   .confetti-container canvas {
     width: 100%;
     height: 100%;
   }
+
+  #throw-confetti-btn:hover {
+    background-color: #fb3d7f !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  }
+  
 
 #valentine-message-container {
     display: flex;

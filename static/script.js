@@ -111,14 +111,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let messageContainer = document.createElement("div");
     messageContainer.id = "valentine-message-container";
     document.body.appendChild(messageContainer);
-
-    messageContainer.style.zIndex = '3100';
   
+    messageContainer.style.zIndex = '3100';
+    
     gsap.set("#valentine-message-container", {
       position: "fixed",
       top: "50%",
       left: "50%",
-
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -147,21 +146,36 @@ document.addEventListener('DOMContentLoaded', function () {
       opacity: 1,
     });
 
-    let throwConfettiBtn = document.createElement("button");
-  throwConfettiBtn.id = "throw-confetti-btn";
-  throwConfettiBtn.textContent = "Throw Confetti Again!";
-  throwConfettiBtn.style = "padding: 10px 20px; font-size: 1em; margin-top: 20px; cursor: pointer; background-color: pink; border: none; border-radius: 5px;";
+    let btnContainer = document.createElement("div");
+  btnContainer.style = "margin-top: 40px; width: 100%; display: flex; justify-content: center;";
 
-  // Append the button to the document
-  document.body.appendChild(throwConfettiBtn); // Adjust based on where you want the button to appear
+  let throwConfettiBtn = document.createElement("button");
+  throwConfettiBtn.textContent = "RAHHHH!";
+  throwConfettiBtn.style = "padding: 10px 20px; font-size: 1em; cursor: pointer; background-color: pink; border: none; border-radius: 5px;";
 
-  // Add event listener to the button
+  btnContainer.appendChild(throwConfettiBtn);
+  messageContainer.appendChild(btnContainer);
+
   throwConfettiBtn.addEventListener('click', function() {
     jsConfetti.addConfetti({
       emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
     });
   });
-  }
   
+  throwConfettiBtn.addEventListener('mouseenter', function() {
+    this.style.backgroundColor = '#fb3d7f'; // Lighter pink for hover
+    this.style.color = 'white'; // Change text color on hover
+    this.style.transform = 'scale(1.05)'; // Slightly increase button size
+    this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)'; // Enhance shadow
+  });
   
+  throwConfettiBtn.addEventListener('mouseleave', function() {
+    this.style.backgroundColor = 'pink'; // Original color
+    this.style.color = 'initial'; // Original text color
+    this.style.transform = 'scale(1)'; // Original size
+    this.style.boxShadow = 'initial'; // Original shadow
+  });
+  
+}
+   
 });
