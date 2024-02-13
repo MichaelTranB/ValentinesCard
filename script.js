@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
     image.style.width = "300px"; 
     image.style.height = "auto";
     image.style.marginBottom = "20px"; 
+    image.style.marginTop = "70px"; 
   
     let message = document.createElement("div");
     message.innerHTML = "Yay! You're my Valentine now! ❤️";
@@ -160,14 +161,14 @@ document.addEventListener('DOMContentLoaded', function () {
       opacity: 1,
     });
 
-    //RAHHH Button
+    //RAAHHH Button
     let btnContainer = document.createElement("div");
     btnContainer.style = "margin-top: 40px; width: 100%; display: flex; justify-content: center;";
 
     let throwConfettiBtn = document.createElement("button");
-    throwConfettiBtn.textContent = "RAHHHH!";
-    throwConfettiBtn.style.padding = "20px 40px";
-    throwConfettiBtn.style.fontSize = "1.5em";
+    throwConfettiBtn.textContent = "RAAHHH!";
+    throwConfettiBtn.style.padding = "20px 30px";
+    throwConfettiBtn.style.fontSize = "1.2em";
     throwConfettiBtn.style.cursor = "pointer";
     throwConfettiBtn.style.backgroundColor = "#FF1493"; 
     throwConfettiBtn.style.color = "#FFFFFF";
@@ -218,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let leftArrow = document.createElement("span");
     leftArrow.innerHTML = "&#8594;"; 
     leftArrow.style.position = "absolute";
-    leftArrow.style.left = "75px"; 
+    leftArrow.style.left = "100px"; 
     leftArrow.style.top = "50%";
     leftArrow.style.transform = "translateY(-50%)"; 
     leftArrow.style.fontSize = "30px"; 
@@ -229,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let rightArrow = document.createElement("span");
     rightArrow.innerHTML = "&#8592;"; 
     rightArrow.style.position = "absolute";
-    rightArrow.style.right = "75px"; 
+    rightArrow.style.right = "100px"; 
     rightArrow.style.top = "50%";
     rightArrow.style.transform = "translateY(-50%)"; 
     rightArrow.style.fontSize = "30px"; 
@@ -262,6 +263,21 @@ document.addEventListener('DOMContentLoaded', function () {
         emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
       });
     });
+
+    function adjustArrowPositions() {
+      const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      if (screenWidth <= 768) { 
+          leftArrow.style.left = "0px"; 
+          rightArrow.style.right = "0px"; 
+      } else {
+          leftArrow.style.left = "75px"; 
+          rightArrow.style.right = "75px"; 
+      }
+  }
+  
+  adjustArrowPositions();
+  window.addEventListener('resize', adjustArrowPositions); 
+  
 
   }
 });
