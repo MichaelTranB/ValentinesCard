@@ -270,8 +270,8 @@ document.addEventListener('DOMContentLoaded', function () {
           leftArrow.style.left = "-15px"; 
           rightArrow.style.right = "-15px"; 
       } else {
-          leftArrow.style.left = "75px"; 
-          rightArrow.style.right = "75px"; 
+          leftArrow.style.left = "100px"; 
+          rightArrow.style.right = "100px"; 
       }
   }
   
