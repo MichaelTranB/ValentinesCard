@@ -64,15 +64,80 @@ document.addEventListener('DOMContentLoaded', function () {
     nobtn.style.left = `${newLeft}px`;
 }
 
-
-  yesbtn.addEventListener("click", () => {
-    envelope.style.display = "block";
-  });
-
   nobtn.addEventListener('mouseover', moveButtonWithinViewport);
   nobtn.addEventListener('click', moveButtonWithinViewport);
   nobtn.addEventListener('touchstart', moveButtonWithinViewport);
 
   document.body.style.overflow = 'hidden';
+
+
+  yesbtn.addEventListener("click", () => {
+    let heart = document.createElement("div");
+    heart.id = "full-screen-heart";
+    document.body.appendChild(heart);
+  
+    // Set initial styles for the heart
+    gsap.set("#full-screen-heart", {
+      position: "fixed", // Use fixed to cover the entire screen
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "#ff79a7", // Updated to the new color
+      x: "0%",
+      y: "0%",
+      borderRadius: "0%", // Start with a circle shape
+      opacity: 0,
+      zIndex: 3000 
+    });
+  
+    gsap.to("#full-screen-heart", {
+      duration: 1, 
+      opacity: 1,
+      ease: "power2.inOut", 
+      onComplete: displayNewMessage 
+    });
+  });
+  
+  function displayNewMessage() {
+    let messageContainer = document.createElement("div");
+    messageContainer.id = "valentine-message-container";
+    document.body.appendChild(messageContainer);
+  
+    gsap.set("#valentine-message-container", {
+      position: "fixed",
+      top: "50%",
+      left: "50%",
+
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      opacity: 0,
+      zIndex: 3100,
+    });
+  
+    let image = document.createElement("img");
+    image.src = "https://i.pinimg.com/originals/78/74/a2/7874a21dd174069b875077d89b8e4c2d.gif";
+    image.style.width = "300px"; // Set width directly
+    image.style.height = "auto";
+    image.style.marginBottom = "20px"; // Space between image and text
+  
+    let message = document.createElement("div");
+    message.innerHTML = "Yay! You're my Valentine now! ❤️";
+    message.style.fontSize = "2em";
+    message.style.color = "#FFFFFF";
+    message.style.textAlign = "center";
+  
+    messageContainer.appendChild(image);
+    messageContainer.appendChild(message);
+  
+    // Fade in the container once it's fully set up
+    gsap.to("#valentine-message-container", {
+      duration: 1,
+      opacity: 1,
+    });
+  }
+  
 
 });

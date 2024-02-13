@@ -40,8 +40,8 @@ body{
 
 .text {
     z-index: 1000;
-    max-width: 90%; /* Prevent the text from stretching too wide */
-    font-size: 3.5em; /* Starting font size for larger screens */
+    max-width: 90%; 
+    font-size: 3.5em; 
     letter-spacing: 3px;
     font-family: 'Dosis', cursive;
     font-weight: bold;
@@ -51,19 +51,20 @@ body{
     border-radius: 5px;
     border: 3px solid #FCE3E9;
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
-    white-space: normal; /* Allow text wrapping */
-    text-align: center; /* Center the text for smaller containers */
-    margin: 20px auto; /* Center the text block and add space around it */
+    white-space: normal;
+    text-align: center;
+    margin: 20px auto; 
     position: static; 
     margin-bottom: 45px;
 }
 
 .btn-group {
-    position: static; 
     display: flex;
     justify-content: center;
-    align-items: center;
+    position: relative;
+    width: 100%;
 }
+
 button {
     min-width: 120px;
     margin: 0 10px;
@@ -76,29 +77,40 @@ button {
     border: 2px solid;
     background-color: white;
     transition: all 0.3s;
-    z-index: 2000
+    z-index: 2000;
+    position: absolute;
+}
+
+.yes-btn {
+    left: calc(50% - 120px - 30px);
 }
 
 .no-btn {
     transition: all 0.2s ease;
+    left: calc(50% + 30px);
 }
 
-.envelope {
-    display: none;
-    position: absolute;
-    top: 80%;
+#valentine-message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 90%; 
+    margin: 0 auto; 
+    position: fixed;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 100px;
-    background-color: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 10px;
-    padding: 20px;
-    font-size: 16px;
-    color: #000;
-    animation: revealEnvelope 1s forwards;
-    z-index: 2000
+    opacity: 0;
+    z-index: 3100;
+    flex-wrap: wrap;
+}
+
+#valentine-message-container img {
+    max-width: 100%; 
+    height: auto; 
+    margin-bottom: 20px; 
 }
 
 @keyframes revealEnvelope {
@@ -114,13 +126,26 @@ button {
 
 @media (max-width: 768px) {
     .text {
-        font-size: 2.5em; /* Smaller font size for tablet screens */
-        padding: 5px 10px; /* Smaller padding for tighter spaces */
+        font-size: 2.5em; 
+        padding: 5px 10px; 
+    }
+
+    #valentine-message-container {
+        flex-direction: column;
+    }
+
+    #valentine-message-container img {
+        width: 80%; 
+        margin-right: 0; 
+    }
+
+    #valentine-message-container div {
+        font-size: 1.5em; 
     }
 }
 
 @media (max-width: 480px) {
     .text {
-        font-size: 2em; /* Even smaller font size for mobile screens */
+        font-size: 2em; 
     }
 }
