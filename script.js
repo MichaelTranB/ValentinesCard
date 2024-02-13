@@ -170,14 +170,15 @@ document.addEventListener('DOMContentLoaded', function () {
     throwConfettiBtn.style.fontSize = "1.5em";
     throwConfettiBtn.style.cursor = "pointer";
     throwConfettiBtn.style.backgroundColor = "#FF1493"; 
+    throwConfettiBtn.style.color = "#FFFFFF";
     throwConfettiBtn.style.border = "3px solid #FF69B4";
     throwConfettiBtn.style.borderRadius = "15px";
     throwConfettiBtn.style.boxShadow = "0 5px 15px rgba(255, 105, 180, 0.4)";
     throwConfettiBtn.style.transition = "transform 0.2s, box-shadow 0.2s, background-color 0.2s";
     throwConfettiBtn.style.fontWeight = "bold";
     throwConfettiBtn.style.letterSpacing = "1px";
-    throwConfettiBtn.style.position = "relative";
-     
+    throwConfettiBtn.style.position = "relative"; 
+
     // Hover effect
     throwConfettiBtn.onmouseover = function() {
         this.style.transform = "scale(1.05) translateY(-5px)";
