@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const yesbtn = document.querySelector(".yes-btn");
   const nobtn = document.querySelector(".no-btn");
   const envelope = document.querySelector(".envelope");
+  const canvas = document.getElementById('my-custom-canvas');
+  const jsConfetti = new JSConfetti({ canvas });
 
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
@@ -68,25 +70,27 @@ document.addEventListener('DOMContentLoaded', function () {
   nobtn.addEventListener('click', moveButtonWithinViewport);
   nobtn.addEventListener('touchstart', moveButtonWithinViewport);
 
-  document.body.style.overflow = 'hidden';
-
-
   yesbtn.addEventListener("click", () => {
+
+    jsConfetti.addConfetti({
+      emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
+    });
+
     let heart = document.createElement("div");
     heart.id = "full-screen-heart";
     document.body.appendChild(heart);
   
-    // Set initial styles for the heart
+    
     gsap.set("#full-screen-heart", {
-      position: "fixed", // Use fixed to cover the entire screen
+      position: "fixed", 
       top: "0",
       left: "0",
       width: "100%",
       height: "100%",
-      backgroundColor: "#ff79a7", // Updated to the new color
+      backgroundColor: "#ff79a7", 
       x: "0%",
       y: "0%",
-      borderRadius: "0%", // Start with a circle shape
+      borderRadius: "0%", 
       opacity: 0,
       zIndex: 3000 
     });
@@ -95,14 +99,20 @@ document.addEventListener('DOMContentLoaded', function () {
       duration: 1, 
       opacity: 1,
       ease: "power2.inOut", 
-      onComplete: displayNewMessage 
+      onComplete: displayNewMessage
     });
   });
   
   function displayNewMessage() {
+    jsConfetti.addConfetti({
+      emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
+    });
+  
     let messageContainer = document.createElement("div");
     messageContainer.id = "valentine-message-container";
     document.body.appendChild(messageContainer);
+
+    messageContainer.style.zIndex = '3100';
   
     gsap.set("#valentine-message-container", {
       position: "fixed",
@@ -119,9 +129,9 @@ document.addEventListener('DOMContentLoaded', function () {
   
     let image = document.createElement("img");
     image.src = "https://i.pinimg.com/originals/78/74/a2/7874a21dd174069b875077d89b8e4c2d.gif";
-    image.style.width = "300px"; // Set width directly
+    image.style.width = "300px"; 
     image.style.height = "auto";
-    image.style.marginBottom = "20px"; // Space between image and text
+    image.style.marginBottom = "20px"; 
   
     let message = document.createElement("div");
     message.innerHTML = "Yay! You're my Valentine now! ❤️";
@@ -132,12 +142,26 @@ document.addEventListener('DOMContentLoaded', function () {
     messageContainer.appendChild(image);
     messageContainer.appendChild(message);
   
-    // Fade in the container once it's fully set up
     gsap.to("#valentine-message-container", {
       duration: 1,
       opacity: 1,
     });
+
+    let throwConfettiBtn = document.createElement("button");
+  throwConfettiBtn.id = "throw-confetti-btn";
+  throwConfettiBtn.textContent = "Throw Confetti Again!";
+  throwConfettiBtn.style = "padding: 10px 20px; font-size: 1em; margin-top: 20px; cursor: pointer; background-color: pink; border: none; border-radius: 5px;";
+
+  // Append the button to the document
+  document.body.appendChild(throwConfettiBtn); // Adjust based on where you want the button to appear
+
+  // Add event listener to the button
+  throwConfettiBtn.addEventListener('click', function() {
+    jsConfetti.addConfetti({
+      emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
+    });
+  });
   }
   
-
+  
 });

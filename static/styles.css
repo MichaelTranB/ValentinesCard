@@ -90,6 +90,21 @@ button {
     left: calc(50% + 30px);
 }
 
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3200; /* Ensure this is above all other elements */
+    pointer-events: none; /* Allow clicks to pass through */
+  }
+
+  .confetti-container canvas {
+    width: 100%;
+    height: 100%;
+  }
+
 #valentine-message-container {
     display: flex;
     flex-direction: column;
