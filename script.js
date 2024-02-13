@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const envelope = document.querySelector(".envelope");
   const canvas = document.getElementById('my-custom-canvas');
   const jsConfetti = new JSConfetti({ canvas });
+  const music = document.getElementById('background-music');
 
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
@@ -70,7 +71,15 @@ document.addEventListener('DOMContentLoaded', function () {
   nobtn.addEventListener('click', moveButtonWithinViewport);
   nobtn.addEventListener('touchstart', moveButtonWithinViewport);
 
+  
+  //Yes Button Click
   yesbtn.addEventListener("click", () => {
+    music.play().then(() => {
+      console.log("Audio started playing");
+    }).catch(error => {
+      console.error("Error playing audio:", error);
+    });
+    
 
     jsConfetti.addConfetti({
       emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
@@ -103,10 +112,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
+
+  //Displaying Message
   function displayNewMessage() {
     jsConfetti.addConfetti({
       emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
     });
+
+    music.controls = true;
   
     let messageContainer = document.createElement("div");
     messageContainer.id = "valentine-message-container";
@@ -126,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
       zIndex: 3100,
     });
   
+    //Image and Message Code
     let image = document.createElement("img");
     image.src = "https://i.pinimg.com/originals/78/74/a2/7874a21dd174069b875077d89b8e4c2d.gif";
     image.style.width = "300px"; 
@@ -146,36 +160,107 @@ document.addEventListener('DOMContentLoaded', function () {
       opacity: 1,
     });
 
+    //RAHHH Button
     let btnContainer = document.createElement("div");
-  btnContainer.style = "margin-top: 40px; width: 100%; display: flex; justify-content: center;";
+    btnContainer.style = "margin-top: 40px; width: 100%; display: flex; justify-content: center;";
 
-  let throwConfettiBtn = document.createElement("button");
-  throwConfettiBtn.textContent = "RAHHHH!";
-  throwConfettiBtn.style = "padding: 10px 20px; font-size: 1em; cursor: pointer; background-color: pink; border: none; border-radius: 5px;";
-
-  btnContainer.appendChild(throwConfettiBtn);
-  messageContainer.appendChild(btnContainer);
-
-  throwConfettiBtn.addEventListener('click', function() {
-    jsConfetti.addConfetti({
-      emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
+    let throwConfettiBtn = document.createElement("button");
+    throwConfettiBtn.textContent = "RAHHHH!";
+    throwConfettiBtn.style.padding = "20px 40px";
+    throwConfettiBtn.style.fontSize = "1.5em";
+    throwConfettiBtn.style.cursor = "pointer";
+    throwConfettiBtn.style.backgroundColor = "#FF1493"; 
+    throwConfettiBtn.style.border = "3px solid #FF69B4";
+    throwConfettiBtn.style.borderRadius = "15px";
+    throwConfettiBtn.style.boxShadow = "0 5px 15px rgba(255, 105, 180, 0.4)";
+    throwConfettiBtn.style.transition = "transform 0.2s, box-shadow 0.2s, background-color 0.2s";
+    throwConfettiBtn.style.fontWeight = "bold";
+    throwConfettiBtn.style.letterSpacing = "1px";
+    throwConfettiBtn.style.position = "relative";
+     
+    // Hover effect
+    throwConfettiBtn.onmouseover = function() {
+        this.style.transform = "scale(1.05) translateY(-5px)";
+        this.style.boxShadow = "0 10px 20px rgba(255, 105, 180, 0.6)";
+    };
+    
+    // Click effect for press down
+    throwConfettiBtn.onmousedown = function() {
+        this.style.transform = "scale(0.95) translateY(5px)"; 
+        this.style.backgroundColor = "#FF69B4"; 
+    };
+    
+    // Mouseup and transitionend effect for popping back up
+    throwConfettiBtn.onmouseup = function() {
+        this.style.transform = "scale(1.05) translateY(-5px)";
+        this.style.backgroundColor = "#FF1493"; 
+    };
+    
+    throwConfettiBtn.onmouseleave = function() {
+        this.style.transform = "scale(1) translateY(0)"; 
+        this.style.boxShadow = "0 5px 15px rgba(255, 105, 180, 0.4)"; 
+        this.style.backgroundColor = "#FF1493"; 
+    };
+    
+    // Ensure the button pops back to its hover state after being pressed
+    throwConfettiBtn.addEventListener('transitionend', function() {
+        if (this.style.transform === "scale(0.95) translateY(5px)") {
+            this.style.transform = "scale(1.05) translateY(-5px)";
+        }
     });
-  });
-  
-  throwConfettiBtn.addEventListener('mouseenter', function() {
-    this.style.backgroundColor = '#fb3d7f'; // Lighter pink for hover
-    this.style.color = 'white'; // Change text color on hover
-    this.style.transform = 'scale(1.05)'; // Slightly increase button size
-    this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)'; // Enhance shadow
-  });
-  
-  throwConfettiBtn.addEventListener('mouseleave', function() {
-    this.style.backgroundColor = 'pink'; // Original color
-    this.style.color = 'initial'; // Original text color
-    this.style.transform = 'scale(1)'; // Original size
-    this.style.boxShadow = 'initial'; // Original shadow
-  });
-  
-}
-   
+    
+
+    btnContainer.appendChild(throwConfettiBtn);
+    messageContainer.appendChild(btnContainer);
+
+    //Button Arrows 
+    let leftArrow = document.createElement("span");
+    leftArrow.innerHTML = "&#8594;"; 
+    leftArrow.style.position = "absolute";
+    leftArrow.style.left = "75px"; 
+    leftArrow.style.top = "50%";
+    leftArrow.style.transform = "translateY(-50%)"; 
+    leftArrow.style.fontSize = "30px"; 
+    leftArrow.style.color = "white"; 
+    leftArrow.style.fontWeight = "bold"; 
+
+
+    let rightArrow = document.createElement("span");
+    rightArrow.innerHTML = "&#8592;"; 
+    rightArrow.style.position = "absolute";
+    rightArrow.style.right = "75px"; 
+    rightArrow.style.top = "50%";
+    rightArrow.style.transform = "translateY(-50%)"; 
+    rightArrow.style.fontSize = "30px"; 
+    rightArrow.style.color = "white"; 
+    rightArrow.style.fontWeight = "bold"; 
+
+
+    btnContainer.style.position = "relative"; 
+    btnContainer.appendChild(leftArrow);
+    btnContainer.appendChild(throwConfettiBtn); 
+    btnContainer.appendChild(rightArrow);
+
+
+    btnContainer.style.display = "flex";
+    btnContainer.style.alignItems = "center";
+    btnContainer.style.justifyContent = "center";
+
+
+    //Audio Controls
+    let audioContainer = document.createElement("div");
+    audioContainer.style.marginTop = "150px";
+    audioContainer.appendChild(music); 
+
+    messageContainer.appendChild(audioContainer); 
+    
+
+    //Event Listeners for RAHHH Button
+    throwConfettiBtn.addEventListener('click', function() {
+      jsConfetti.addConfetti({
+        emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
+      });
+    });
+
+  }
 });
