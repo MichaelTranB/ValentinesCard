@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Function to redirect to a special page
   function redirectToSpecialPage() {
       // Redirect to a special page
-      window.location.href = './sri.html';
+      window.location.href = './sri.html'; // ./sri.html fpr github
   }
   
 
