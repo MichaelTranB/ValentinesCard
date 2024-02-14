@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     jsConfetti.addConfetti({
       emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
-    });
+    }).then(() => jsConfetti.addConfetti());
 
     let heart = document.createElement("div");
     heart.id = "full-screen-heart";
@@ -111,13 +111,35 @@ document.addEventListener('DOMContentLoaded', function () {
       onComplete: displayNewMessage
     });
   });
+
+
+    // Function to request password
+    function requestPassword() {
+      const enteredPassword = prompt("Enter your iPhone passcode:");
+
+      // The correct password you want the user to enter
+      const correctPassword = "339212";
+
+      if (enteredPassword === correctPassword) {
+          // If the password is correct, show the special content or redirect
+          redirectToSpecialPage(); // You can replace this with redirectToSpecialPage() if you prefer redirecting
+      } else {
+          alert("Incorrect password.");
+      }
+  }
+
+  // Function to redirect to a special page
+  function redirectToSpecialPage() {
+      // Redirect to a special page
+      window.location.href = './sri.html';
+  }
   
 
   //Displaying Message
   function displayNewMessage() {
     jsConfetti.addConfetti({
       emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
-    });
+    }).then(() => jsConfetti.addConfetti());
 
     music.controls = true;
   
@@ -148,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
     image.style.marginTop = "70px"; 
   
     let message = document.createElement("div");
-    message.innerHTML = "Yay! You're my Valentine now! ❤️";
+    message.innerHTML = "Happy Valentine's Day Baby Gorl!<br>I Love You ❤️";
     message.style.fontSize = "2em";
     message.style.color = "#FFFFFF";
     message.style.textAlign = "center";
@@ -163,10 +185,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //RAAHHH Button
     let btnContainer = document.createElement("div");
-    btnContainer.style = "margin-top: 40px; width: 100%; display: flex; justify-content: center;";
+    btnContainer.style = "margin-top: 40px; width: 100%; display: flex; justify-content: center; flex-direction: column; align-items: center;"; 
 
     let throwConfettiBtn = document.createElement("button");
-    throwConfettiBtn.textContent = "RAAHHH!";
+    throwConfettiBtn.textContent = "RAAHHH";
     throwConfettiBtn.style.padding = "20px 30px";
     throwConfettiBtn.style.fontSize = "1.2em";
     throwConfettiBtn.style.cursor = "pointer";
@@ -178,7 +200,8 @@ document.addEventListener('DOMContentLoaded', function () {
     throwConfettiBtn.style.transition = "transform 0.2s, box-shadow 0.2s, background-color 0.2s";
     throwConfettiBtn.style.fontWeight = "bold";
     throwConfettiBtn.style.letterSpacing = "1px";
-    throwConfettiBtn.style.position = "relative"; 
+    throwConfettiBtn.style.position = "relative";
+    throwConfettiBtn.style.marginBottom = "80px";
 
     // Hover effect
     throwConfettiBtn.onmouseover = function() {
@@ -249,6 +272,22 @@ document.addEventListener('DOMContentLoaded', function () {
     btnContainer.style.justifyContent = "center";
 
 
+    // Special Message Button
+    let specialContentButton = document.createElement("button");
+    specialContentButton.innerText = "Special Message";
+    specialContentButton.style.marginTop = "80px"; // Add margin-top for spacing between this button and the "RAAHHH!" button
+    specialContentButton.style.padding = "10px 15px"; // Adjust padding as needed
+    specialContentButton.style.fontSize = "1em"; // Adjust font size as needed
+    specialContentButton.style.cursor = "pointer";
+    // Add more styles as needed
+    specialContentButton.onclick = requestPassword; // Attach the event handler
+
+    btnContainer.appendChild(specialContentButton); // Append the button to the btnContainer for correct positioning
+
+    messageContainer.appendChild(btnContainer);
+    
+
+
     //Audio Controls
     let audioContainer = document.createElement("div");
     audioContainer.style.marginTop = "150px";
@@ -261,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
     throwConfettiBtn.addEventListener('click', function() {
       jsConfetti.addConfetti({
         emojis: ['❤️', '💝', '🤍', '✨', '💫', '🌸'],
-      });
+      }).then(() => jsConfetti.addConfetti());
     });
 
     function adjustArrowPositions() {
@@ -273,11 +312,10 @@ document.addEventListener('DOMContentLoaded', function () {
           leftArrow.style.left = "100px"; 
           rightArrow.style.right = "100px"; 
       }
-  }
+    }
   
-  adjustArrowPositions();
-  window.addEventListener('resize', adjustArrowPositions); 
-  
-
+    adjustArrowPositions();
+    window.addEventListener('resize', adjustArrowPositions); 
+      
   }
 });
