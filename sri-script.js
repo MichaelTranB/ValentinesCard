@@ -21,10 +21,12 @@ getPhotos();
 
 function getPhotos() {
     $('.photos').html('');
-    $.each(myPhotos, function(i, photo) {
-        $('<div class="drag" data-i="' + i + '"><figure class="spin"><img src="' + photo.url + '" alt="Photo ' + (i + 1) + '" /><figcaption class="polaroid-caption">' + photo.caption + '</figcaption></figure></div>').appendTo('.photos');
-    });
-    $('<div class="drag note-item" style="z-index: -1;"><figure class="spin"><img src="' + myNote.url + '" alt="My Note" /><figcaption class="polaroid-caption">' + myNote.caption + '</figcaption></figure></div>').appendTo('.photos');
+     // Note added with a specific class for styling and interaction
+     $('<div class="drag note-item" data-i="note"><figure><img src="' + myNote.url + '" alt="My Note" /><figcaption class="polaroid-caption">' + myNote.caption + '</figcaption></figure></div>').appendTo('.photos');
+     // Add photos
+     $.each(myPhotos, function(i, photo) {
+         $('<div class="drag" data-i="' + i + '"><figure class="spin"><img src="' + photo.url + '" alt="Photo ' + (i + 1) + '" /><figcaption class="polaroid-caption">' + photo.caption + '</figcaption></figure></div>').appendTo('.photos');
+     });
     scatterPhotos();
 }
 
@@ -44,7 +46,7 @@ function scatterPhotos() {
             rotation: getRandomInt(-30, 30)
         });
     });
-
+    
     Draggable.create(drag, {
         bounds: board,
         throwProps: true,
