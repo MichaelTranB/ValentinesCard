@@ -1,18 +1,18 @@
 console.clear();
 
 var myPhotos = [
-    { url: 'static/images/photo1.jpg', caption: 'Cancoochieee' },
-    { url: 'static/images/photo2.jpg', caption: 'my best birthday ever' },
-    { url: 'static/images/photo3.jpg', caption: 'my fav iphone contacts pic' },
-    { url: 'static/images/photo4.jpg', caption: '"It\'s Gentle Monster" 🐲🧧' },
-    { url: 'static/images/photo5.jpg', caption: 'my other fav lil rat 😍' },
-    { url: 'static/images/photo6.jpg', caption: 'AI us' },
-    { url: 'static/images/photo7.jpg', caption: 'Ezoo!' },
-    { url: 'static/images/photo8.jpg', caption: 'our first date :)' },
-    { url: 'static/images/photo9.jpg', caption: 'KOREAAA' },
-    { url: 'static/images/photo10.jpg', caption: 'ATL HOE!' },
-    { url: 'static/images/photo11.jpg', caption: 'SriDC!' },
-    { url: 'static/images/photo12.jpg', caption: 'SriDC pt 2' },
+    { url: '/assets/photo1.jpg', caption: 'Cancoochieee' },
+    { url: '/assets/photo2.jpg', caption: 'my best birthday ever' },
+    { url: '/assets/photo3.jpg', caption: 'my fav iphone contacts pic' },
+    { url: '/assets/photo4.jpg', caption: '"It\'s Gentle Monster" 🐲🧧' },
+    { url: '/assets/photo5.jpg', caption: 'my other fav lil rat 😍' },
+    { url: '/assets/photo6.jpg', caption: 'AI us' }, // Updated path
+    { url: '/assets/photo7.jpg', caption: 'Ezoo!' },
+    { url: '/assets/photo8.jpg', caption: 'our first date :)' },
+    { url: '/assets/photo9.jpg', caption: 'KOREAAA' },
+    { url: '/assets/photo10.jpg', caption: 'ATL HOE!' },
+    { url: '/assets/photo11.jpg', caption: 'SriDC!' }, // Updated path
+    { url: '/assets/photo12.jpg', caption: 'SriDC pt 2' }, // Updated path
 ];
 
 var myNote = { url: '/assets/myNote.jpg', caption: 'My Special Note' };
