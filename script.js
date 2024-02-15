@@ -112,26 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
-    // Function to request password
-    function requestPassword() {
-      const enteredPassword = prompt("Enter your iPhone passcode:");
-
-      // The correct password you want the user to enter
-      const correctPassword = "339212";
-
-      if (enteredPassword === correctPassword) {
-          // If the password is correct, show the special content or redirect
-          redirectToSpecialPage(); // You can replace this with redirectToSpecialPage() if you prefer redirecting
-      } else {
-          alert("Incorrect password.");
-      }
-  }
-
-  // Function to redirect to a special page
+  // Function to redirect to special message page
   function redirectToSpecialPage() {
-      // Redirect to a special page
-      window.location.href = 'https://michaeltranb.github.io/ValentinesCard/sri.html'; 
+      window.location.href = './sri.html'; 
   }
   
 
@@ -275,18 +258,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Special Message Button
     let specialContentButton = document.createElement("button");
     specialContentButton.innerText = "Special Message";
-    specialContentButton.style.marginTop = "80px"; // Add margin-top for spacing between this button and the "RAAHHH!" button
-    specialContentButton.style.padding = "10px 15px"; // Adjust padding as needed
-    specialContentButton.style.fontSize = "1em"; // Adjust font size as needed
+    specialContentButton.style.marginTop = "80px"; 
+    specialContentButton.style.padding = "10px 15px"; 
+    specialContentButton.style.fontSize = "1em"; 
     specialContentButton.style.cursor = "pointer";
-    // Add more styles as needed
-    specialContentButton.onclick = requestPassword; // Attach the event handler
 
-    btnContainer.appendChild(specialContentButton); // Append the button to the btnContainer for correct positioning
+    specialContentButton.addEventListener('click', function() {
+      redirectToSpecialPage();
+    });
 
+    btnContainer.appendChild(specialContentButton); 
     messageContainer.appendChild(btnContainer);
     
-
 
     //Audio Controls
     let audioContainer = document.createElement("div");
