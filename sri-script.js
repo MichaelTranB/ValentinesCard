@@ -2,12 +2,12 @@ console.clear();
 
 var myPhotos = [
     { url: '/assets/photo1.jpg', caption: 'Cancoochieee' },
-    { url: '/assets/photo2.jpg', caption: 'my best birthday ever' },
+    { url: '/assets/photo2.jpg', caption: 'best birthday ever' },
     { url: '/assets/photo3.jpg', caption: 'my fav iphone contacts pic' },
     { url: '/assets/photo4.jpg', caption: '"It\'s Gentle Monster" 🐲🧧' },
     { url: '/assets/photo5.jpg', caption: 'my other fav lil rat 😍' },
     { url: '/assets/photo6.jpg', caption: 'AI us' }, 
-    { url: '/assets/photo7.jpg', caption: 'Ezoo!' },
+    { url: '/assets/photo7.jpg', caption: 'EZoo!' },
     { url: '/assets/photo8.jpg', caption: 'our first date :)' },
     { url: '/assets/photo9.jpg', caption: 'KOREAAA' },
     { url: '/assets/photo10.jpg', caption: 'ATL HOE!' },
@@ -15,7 +15,7 @@ var myPhotos = [
     { url: '/assets/photo12.jpg', caption: 'SriDC pt 2' },
 ];
 
-var myNote = { url: '/assets/myNote.jpg', caption: 'My Special Note' };
+var myNote = { url: '/assets/myNote.jpg', caption: 'For Sri' };
 
 getPhotos();
 
@@ -23,7 +23,7 @@ function getPhotos() {
     $('.photos').html('');
     var noteHtml = '<div class="drag note-item locked" data-i="note"><figure><img src="' + myNote.url + '" alt="My Note" />' +
     '<figcaption class="polaroid-caption">' + myNote.caption + '</figcaption></figure>' +
-    '<div class="note-lock"><span>🔒 Enter your iPhone password to view</span></div></div>';
+    '<div class="note-lock"><span>🔒 Enter your password to view</span></div></div>';
     $(noteHtml).appendTo('.photos');
      $.each(myPhotos, function(i, photo) {
          $('<div class="drag" data-i="' + i + '"><figure class="spin"><img src="' + photo.url + '" alt="Photo ' + (i + 1) + '" /><figcaption class="polaroid-caption">' + photo.caption + '</figcaption></figure></div>').appendTo('.photos');
