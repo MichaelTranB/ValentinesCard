@@ -43,6 +43,7 @@ html, body {
     width: 30vmin;
     border-radius: .5vmin;
     box-shadow: 0 0 4vmin rgba(0,0,0,.75), 0 0 .5vmin rgba(0,0,0,.5);
+    font-family: 'Just Another Hand', cursive;
     font-size: 4vmin;
     position: absolute;
     transition: box-shadow .2s ease, filter .2s ease;
@@ -79,8 +80,65 @@ html, body {
 }
 
 .polaroid-caption {
+    font-family: 'Dancing Script', cursive;
     font-size: 2vmin; 
     color: #FF69B4; 
     text-align: center;
     margin-top: 1vmin; 
+}
+
+.note-item {
+    /* Initial z-index to ensure it starts beneath the photos */
+    z-index: 0;
+}
+
+.drag:not(.note-item) {
+    /* Ensure photos are above the note */
+    z-index: 1;
+}
+
+.note-item.active, .drag.active {
+    /* Bring to front when active */
+    z-index: 9999;
+    cursor: grab; /* Cursor to indicate it can be moved */
+}
+
+
+/* Ensure the photos have a higher initial z-index than the note but lower than an active note */
+.drag {
+    z-index: 10;
+}
+
+.note-item figure {
+    min-width: 60vmin; /* Larger note size */
+    min-height: auto; /* Auto height for content */
+    padding: 2vmin; /* Padding similar to other photos */
+    padding-bottom: 4vmin; /* Additional bottom padding for the caption */
+    font-family: 'Dancing Script', cursive; /* Stylish font */
+    font-size: 2vmin; /* Font size to match captions */
+    color: #FF69B4; /* Pink color for the caption */
+    text-align: center; /* Centered caption */
+    background: #f8f8f8; /* Light background */
+    border: 2px solid #e7e7e7; /* Border to match other photos */
+    box-shadow: 0 0 4vmin rgba(0,0,0,.75), 0 0 .5vmin rgba(0,0,0,.5); /* Shadow for depth */
+}
+
+.note-item img {
+    width: 100%; /* Full width within the figure */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.note-item.active {
+    transform: scale(2); /* Enlarge when active */
+    cursor: grabbing; /* Cursor change when moving */
+    /* Keep it draggable without making it fixed */
+}
+
+
+.note-item figcaption {
+    font-family: 'Dancing Script', cursive; /* Stylish font for the caption */
+    font-size: 2vmin; /* Matching size with other photos */
+    color: #FF69B4; /* Pink color for the caption */
+    text-align: center; /* Centered text */
+    margin-top: 1vmin; /* Space above the caption */
 }
