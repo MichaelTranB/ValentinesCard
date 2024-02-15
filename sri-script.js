@@ -31,7 +31,7 @@ function getPhotos() {
     scatterPhotos();
 
     $(document).on('click', '.note-item.locked', function() {
-        var password = prompt("Please enter your iPhone password:");
+        var password = prompt("Please enter your password:");
         if (password === "339212") { 
             $(this).removeClass('locked');
             $('.note-lock', this).remove(); 
