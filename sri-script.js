@@ -21,13 +21,24 @@ getPhotos();
 
 function getPhotos() {
     $('.photos').html('');
-     // Note added with a specific class for styling and interaction
-     $('<div class="drag note-item" data-i="note"><figure><img src="' + myNote.url + '" alt="My Note" /><figcaption class="polaroid-caption">' + myNote.caption + '</figcaption></figure></div>').appendTo('.photos');
-     // Add photos
+    var noteHtml = '<div class="drag note-item locked" data-i="note"><figure><img src="' + myNote.url + '" alt="My Note" />' +
+    '<figcaption class="polaroid-caption">' + myNote.caption + '</figcaption></figure>' +
+    '<div class="note-lock"><span>🔒 Enter your iPhone password to view</span></div></div>';
+    $(noteHtml).appendTo('.photos');
      $.each(myPhotos, function(i, photo) {
          $('<div class="drag" data-i="' + i + '"><figure class="spin"><img src="' + photo.url + '" alt="Photo ' + (i + 1) + '" /><figcaption class="polaroid-caption">' + photo.caption + '</figcaption></figure></div>').appendTo('.photos');
      });
     scatterPhotos();
+
+    $(document).on('click', '.note-item.locked', function() {
+        var password = prompt("Please enter your iPhone password:");
+        if (password === "339212") { 
+            $(this).removeClass('locked');
+            $('.note-lock', this).remove(); 
+        } else {
+            alert("Incorrect password :(");
+        }
+    });
 }
 
 function scatterPhotos() {
@@ -56,17 +67,15 @@ function scatterPhotos() {
         onClick: function(e) {
             var $this = $(e.target).closest('.drag');
             if (!$this.hasClass('active')) {
-                // Enlarge the photo if it's not already active
                 $this.addClass('active').css({
                     transform: 'scale(2)',
-                    zIndex: 9999 // Ensure it's above other photos
+                    zIndex: 9999 
                 });
                 $('body').addClass('full');
             } else {
-                // Reset the photo if it's already active
                 $this.removeClass('active').css({
                     transform: '',
-                    zIndex: '' // Reset z-index
+                    zIndex: '' 
                 });
                 $('body').removeClass('full');
             }
@@ -134,3 +143,4 @@ function adjustRotation($spinElement) {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
