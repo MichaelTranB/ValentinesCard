@@ -43,7 +43,6 @@ html, body {
     width: 30vmin;
     border-radius: .5vmin;
     box-shadow: 0 0 4vmin rgba(0,0,0,.75), 0 0 .5vmin rgba(0,0,0,.5);
-    font-family: 'Just Another Hand', cursive;
     font-size: 4vmin;
     position: absolute;
     transition: box-shadow .2s ease, filter .2s ease;
