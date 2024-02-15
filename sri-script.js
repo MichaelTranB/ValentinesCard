@@ -6,7 +6,7 @@ var myPhotos = [
     { url: '/assets/photo3.jpg', caption: 'my fav iphone contacts pic' },
     { url: '/assets/photo4.jpg', caption: '"It\'s Gentle Monster" 🐲🧧' },
     { url: '/assets/photo5.jpg', caption: 'my other fav lil rat 😍' },
-    { url: '/assets/photo6.jpg', caption: 'AI us' }, 
+    { url: '/assets/photo6.jpg', caption: 'we love AI' }, 
     { url: '/assets/photo7.jpg', caption: 'EZoo!' },
     { url: '/assets/photo8.jpg', caption: 'our first date :)' },
     { url: '/assets/photo9.jpg', caption: 'KOREAAA' },
