@@ -19,9 +19,6 @@ html, body {
     overflow: hidden;
     position: fixed;
     transition: filter .2s ease;
-    body.full & {
-      // filter: blur(2px);
-    }
   }
 
   .photos {
@@ -59,9 +56,6 @@ html, body {
     figcaption {
       text-align: center;
       pointer-events: none;
-    }
-    body.full .drag:not(.active) & {
-      // filter: blur(2px);
     }
   }
 
@@ -141,7 +135,7 @@ html, body {
 
 
 .note-item.locked figure {
-    filter: blur(5px);
+    filter: blur(6px);
 }
 
 .note-item.locked .note-lock {
@@ -156,4 +150,3 @@ html, body {
     text-align: center;
     font-family: 'Dancing Script', cursive;
 }
-
