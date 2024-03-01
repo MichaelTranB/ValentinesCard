@@ -1,6 +1,6 @@
 # Valentine's Day Card
 
-A cute Valentine's Day card website I created for my girlfriend in 2024. This repository is designed to showcase my mini personal project, featuring the non-deployment code. This version of the project excludes certain operational elements required for a live website, such as server-side configurations and what-not for privacy and security. 
+A cute Valentine's Day card website I created for my girlfriend in 2024. This repo is to showcase my mini personal project, featuring the non-deployment code.
 
 I primarily used JavaScript for the animations, music, confetti effects, Polaroid picture interactions, and the password-protected note (note: this file has been removed for the purpose of this public repository).
 
