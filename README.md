@@ -6,7 +6,5 @@ I primarily used JavaScript for the animations, music, confetti effects, Polaroi
 
 I also had registered a domain with her full name as a part of her gift but took it down for privacy reasons. However, you can still check out the project here: [https://myvalentine88.netlify.app/](https://myvalentine88.netlify.app/)
 
-Cheers to doing slightly above the bare minimum for the people we care about (she loved her card) ❤️🥂🎉
-
 
 ![Valentine's Day Card Gif](./assets/valentinesDemo1.gif)
